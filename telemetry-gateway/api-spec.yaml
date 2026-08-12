@@ -1,0 +1,204 @@
+openapi: 3.0.3
+info:
+  title: Device Telemetry Gateway API
+  description: >
+    Shared interface between the Pump Controller Firmware (producer) and
+    the Clinician Portal / Patient Companion App (consumers). This spec
+    is the classification-boundary crossing point of the platform: the
+    Clinical Channel carries full-fidelity medical-grade data, and the
+    Non-Clinical Channel carries only a filtered, non-clinical subset.
+    All values are illustrative demo content, not a real device
+    specification.
+  version: "1.0"
+
+servers:
+  - url: https://telemetry-gateway.demo.local
+
+# =====================================================================
+# CLINICAL CHANNEL
+# Producer: Pump Controller Firmware (SWR-PCF-4)
+# Consumer: Clinician Portal (SWR-CP-1)
+# Full-fidelity feed: speed, flow estimate, filling-pressure-trend
+# proxy, battery voltage curve, alarm events.
+# Referenced as the shared interface for SYS-3.
+# =====================================================================
+paths:
+  /clinical/devices/{deviceId}/telemetry:
+    post:
+      summary: Publish a clinical-channel telemetry sample (producer only)
+      description: >
+        Called by the Pump Controller Firmware's Telemetry Publisher
+        Unit at an illustrative 1 Hz. See
+        pump-controller/telemetry_publisher.c.
+      tags: [clinical-channel]
+      parameters:
+        - name: deviceId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ClinicalTelemetrySample"
+      responses:
+        "204":
+          description: Sample accepted
+
+  /clinical/patients/{patientId}/trend:
+    get:
+      summary: Retrieve historical clinical-channel trend data for a patient
+      description: >
+        Called by the Clinician Portal's Telemetry Retrieval Unit. See
+        clinician-portal/telemetryClient.ts. Default window is 90 days
+        (illustrative), per SWR-CP-1.
+      tags: [clinical-channel]
+      parameters:
+        - name: patientId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: days
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 90
+      responses:
+        "200":
+          description: Trend samples
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ClinicalTelemetrySample"
+
+  # ===================================================================
+  # NON-CLINICAL CHANNEL
+  # Producer: Pump Controller Firmware (SWR-PCF-5)
+  # Consumers: Patient Companion App (SWR-PCA-1, SWR-PCA-3)
+  # Filtered feed: battery % and a general status flag
+  # (Nominal/Attention/Charge Now) plus connectivity heartbeat only.
+  # Explicitly EXCLUDES clinical alarm/waveform/speed/flow data.
+  # Referenced as the shared interface for SYS-4 and the enforcement
+  # point for SWR-PCA-5 (no clinical data surfaced).
+  # ===================================================================
+  /nonclinical/devices/{deviceId}/status:
+    post:
+      summary: Publish a non-clinical-channel status sample (producer only)
+      description: >
+        Called by the Pump Controller Firmware's Telemetry Publisher
+        Unit. See pump-controller/telemetry_publisher.c. The request
+        schema has no field capable of carrying speed, flow, pressure,
+        or alarm data - the allow-list boundary is enforced by the
+        schema shape itself.
+      tags: [non-clinical-channel]
+      parameters:
+        - name: deviceId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NonClinicalStatusSample"
+      responses:
+        "204":
+          description: Sample accepted
+
+    get:
+      summary: Retrieve current non-clinical status for a device
+      description: >
+        Called by the Patient Companion App's shared telemetry client.
+        See companion-app/nonClinicalTelemetryClient.ts.
+      tags: [non-clinical-channel]
+      parameters:
+        - name: deviceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Current non-clinical status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NonClinicalStatusSample"
+
+components:
+  schemas:
+    # -----------------------------------------------------------------
+    # Clinical Channel schema (IFSPEC-DTG-1)
+    # -----------------------------------------------------------------
+    ClinicalTelemetrySample:
+      type: object
+      description: >
+        Full-fidelity clinical channel payload. classificationBoundaryNote
+        documents why this schema is intentionally NOT exposed to the
+        non-clinical channel or the Patient Companion App.
+      required: [timestampUnix, speedRpm, flowEstimateLPerMin, fillingPressureTrendProxyMmHg]
+      properties:
+        timestampUnix:
+          type: integer
+        speedRpm:
+          type: number
+          description: Illustrative rotor speed in RPM.
+        flowEstimateLPerMin:
+          type: number
+          description: Illustrative estimated flow rate in L/min.
+        fillingPressureTrendProxyMmHg:
+          type: number
+          description: Illustrative filling-pressure-trend proxy, in mmHg.
+        batteryVoltageCurve:
+          type: array
+          items:
+            type: number
+          description: Illustrative raw battery voltage samples (clinical-grade only).
+        alarmEvent:
+          type: string
+          nullable: true
+          enum: [null, LOW_FLOW]
+        classificationBoundaryNote:
+          type: string
+          default: >
+            Clinical-grade data. Never exposed on the Non-Clinical
+            Channel or to the Patient Companion App.
+
+    # -----------------------------------------------------------------
+    # Non-Clinical Channel schema (IFSPEC-DTG-2)
+    # -----------------------------------------------------------------
+    NonClinicalStatusSample:
+      type: object
+      description: >
+        Filtered non-clinical channel payload. Deliberately excludes
+        speed, flow, pressure, and alarm state - see
+        classificationBoundaryNote. This is the enforcement point for
+        SWR-PCA-5 (no clinical data surfaced) and SYS-8 (isolated
+        non-clinical update pathway).
+      required: [timestampUnix, batteryPct, statusFlag]
+      properties:
+        timestampUnix:
+          type: integer
+        batteryPct:
+          type: integer
+          minimum: 0
+          maximum: 100
+        statusFlag:
+          type: string
+          enum: [Nominal, Attention, "Charge Now"]
+        connectivityHeartbeat:
+          type: boolean
+        classificationBoundaryNote:
+          type: string
+          default: >
+            Non-clinical data only. Speed, flow, filling-pressure-trend
+            proxy, battery voltage curve, and alarm events are never
+            included on this channel, by contract.
