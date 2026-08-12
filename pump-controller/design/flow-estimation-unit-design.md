@@ -3,9 +3,9 @@ title: Flow Estimation Unit
 type: SOFTWARE_ITEM
 category: Unit
 unitId: UNIT-PCF-2
-# relations:
-#   fulfills:
-#     - KXITM_TBD_flow-estimation-from-motor-telemetry
+relations:
+  fulfills:
+    - KXITM78MKPMRT1J8GPT9Q9QGZGS03MH
 ---
 
 # Flow Estimation Unit

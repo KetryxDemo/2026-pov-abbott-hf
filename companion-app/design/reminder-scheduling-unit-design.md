@@ -3,10 +3,10 @@ title: Reminder Scheduling Unit
 type: SOFTWARE_ITEM
 category: Unit
 unitId: UNIT-PCA-3
-# relations:
-#   fulfills:
-#     - KXITM_TBD_appointment-reminders
-#     - KXITM_TBD_supply-reorder-reminders
+relations:
+  fulfills:
+    - KXITM51063WVB4K94293EMHES97TA08
+    - KXITM33E5B3FF8Y87T8E603K54ASSKC
 ---
 
 # Reminder Scheduling Unit

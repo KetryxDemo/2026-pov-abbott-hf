@@ -3,10 +3,10 @@ title: Trend Chart Rendering Unit
 type: SOFTWARE_ITEM
 category: Unit
 unitId: UNIT-CP-2
-# relations:
-#   fulfills:
-#     - KXITM_TBD_flag-sustained-low-flow-trend
-#     - KXITM_TBD_display-filling-pressure-trend-proxy-with-correct-units
+relations:
+  fulfills:
+    - KXITM3JE6QCPV6X82GA0XJRPR9BMAYT
+    - KXITM6QYCMB27XW937A352M5E2CN4M0
 ---
 
 # Trend Chart Rendering Unit

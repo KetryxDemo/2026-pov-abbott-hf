@@ -3,10 +3,10 @@ title: Telemetry Publisher Unit
 type: SOFTWARE_ITEM
 category: Unit
 unitId: UNIT-PCF-4
-# relations:
-#   fulfills:
-#     - KXITM_TBD_publish-operating-parameters-to-telemetry-gateway-clinical-channel
-#     - KXITM_TBD_publish-non-clinical-status-to-telemetry-gateway
+relations:
+  fulfills:
+    - KXITM0VAEF15X6V8JABPZACWSGPPEMF
+    - KXITM4PAPWKWPT39EY808XM4ARKFD7F
 ---
 
 # Telemetry Publisher Unit

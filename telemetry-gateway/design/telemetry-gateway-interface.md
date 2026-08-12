@@ -3,10 +3,10 @@ title: Device Telemetry Gateway API - Interface Specs
 type: SOFTWARE_ITEM
 category: Interface
 interfaceIds: [IFSPEC-DTG-1, IFSPEC-DTG-2]
-# relations:
-#   fulfills:
-#     - KXITM_TBD_persist-and-expose-rolling-operating-parameter-log
-#     - KXITM_TBD_present-non-clinical-device-status-to-patient
+relations:
+  fulfills:
+    - KXITM04ZCMKWW14856B8J032ME8A31F
+    - KXITM4YDNF4VQ9A9N5BKR8JKB2V8FFT
 ---
 
 # Device Telemetry Gateway API

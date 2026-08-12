@@ -3,9 +3,9 @@ title: Telemetry Retrieval Unit
 type: SOFTWARE_ITEM
 category: Unit
 unitId: UNIT-CP-1
-# relations:
-#   fulfills:
-#     - KXITM_TBD_display-90-day-trend-from-telemetry-gateway
+relations:
+  fulfills:
+    - KXITM4BDXAA3SJZ8C0A1SDZA0R8FNN0
 ---
 
 # Telemetry Retrieval Unit

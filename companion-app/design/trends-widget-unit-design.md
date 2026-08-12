@@ -3,10 +3,10 @@ title: Trends Widget Unit
 type: SOFTWARE_ITEM
 category: Unit
 unitId: UNIT-PCA-2
-# relations:
-#   fulfills:
-#     - KXITM_TBD_how-youre-trending-wellness-widget-non-diagnostic
-#     - KXITM_TBD_no-clinical-data-surfaced-classification-boundary-control
+relations:
+  fulfills:
+    - KXITM3BEJQSSXXK9DDAB75JF7N975ME
+    - KXITM7MAS4TDBB79ZKA27G6V4R6JCM4
 ---
 
 # Trends Widget Unit

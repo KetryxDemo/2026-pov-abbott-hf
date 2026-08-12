@@ -3,9 +3,9 @@ title: Motor Drive Control Unit
 type: SOFTWARE_ITEM
 category: Unit
 unitId: UNIT-PCF-1
-# relations:
-#   fulfills:
-#     - KXITM_TBD_rotor-speed-control-loop
+relations:
+  fulfills:
+    - KXITM0AWQNJJZR48H484C8GEF1CA3K2
 ---
 
 # Motor Drive Control Unit

@@ -3,9 +3,9 @@ title: Audit Log Unit
 type: SOFTWARE_ITEM
 category: Unit
 unitId: UNIT-CP-3
-# relations:
-#   fulfills:
-#     - KXITM_TBD_audit-log-all-telemetry-access
+relations:
+  fulfills:
+    - KXITM3HK06FQ9BK9909M653RJY3AF5S
 ---
 
 # Audit Log Unit

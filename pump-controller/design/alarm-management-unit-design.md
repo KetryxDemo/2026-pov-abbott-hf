@@ -3,9 +3,9 @@ title: Alarm Management Unit
 type: SOFTWARE_ITEM
 category: Unit
 unitId: UNIT-PCF-3
-# relations:
-#   fulfills:
-#     - KXITM_TBD_low-flow-alarm-threshold-and-debounce
+relations:
+  fulfills:
+    - KXITM5FK6ZF5TRA85RR172M17E7NFN1
 ---
 
 # Alarm Management Unit
