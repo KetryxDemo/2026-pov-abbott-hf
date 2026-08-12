@@ -3,9 +3,7 @@ itemId: unit-pca-1
 itemType: Software Item Spec
 itemTitle: Battery Status Widget Unit
 Software item type: Function
-itemFulfills:
-  - KXITM3XVHX0BDR996TT6DW1TQW9WWH6
-  - KXITM7MAS4TDBB79ZKA27G6V4R6JCM4
+itemFulfills: KXITM3XVHX0BDR996TT6DW1TQW9WWH6, KXITM7MAS4TDBB79ZKA27G6V4R6JCM4
 ---
 
 # Battery Status Widget Unit

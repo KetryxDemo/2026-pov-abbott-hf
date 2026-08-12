@@ -3,8 +3,7 @@ itemId: unit-pcf-3
 itemType: Software Item Spec
 itemTitle: Alarm Management Unit
 Software item type: Function
-itemFulfills:
-  - KXITM5FK6ZF5TRA85RR172M17E7NFN1
+itemFulfills: KXITM5FK6ZF5TRA85RR172M17E7NFN1
 ---
 
 # Alarm Management Unit

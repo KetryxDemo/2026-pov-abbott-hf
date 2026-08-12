@@ -3,8 +3,7 @@ itemId: unit-pcf-2
 itemType: Software Item Spec
 itemTitle: Flow Estimation Unit
 Software item type: Function
-itemFulfills:
-  - KXITM78MKPMRT1J8GPT9Q9QGZGS03MH
+itemFulfills: KXITM78MKPMRT1J8GPT9Q9QGZGS03MH
 ---
 
 # Flow Estimation Unit

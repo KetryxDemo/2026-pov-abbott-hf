@@ -3,9 +3,7 @@ itemId: unit-pcf-4
 itemType: Software Item Spec
 itemTitle: Telemetry Publisher Unit
 Software item type: Function
-itemFulfills:
-  - KXITM0VAEF15X6V8JABPZACWSGPPEMF
-  - KXITM4PAPWKWPT39EY808XM4ARKFD7F
+itemFulfills: KXITM0VAEF15X6V8JABPZACWSGPPEMF, KXITM4PAPWKWPT39EY808XM4ARKFD7F
 ---
 
 # Telemetry Publisher Unit

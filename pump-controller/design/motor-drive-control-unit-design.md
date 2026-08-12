@@ -3,8 +3,7 @@ itemId: unit-pcf-1
 itemType: Software Item Spec
 itemTitle: Motor Drive Control Unit
 Software item type: Function
-itemFulfills:
-  - KXITM0AWQNJJZR48H484C8GEF1CA3K2
+itemFulfills: KXITM0AWQNJJZR48H484C8GEF1CA3K2
 ---
 
 # Motor Drive Control Unit

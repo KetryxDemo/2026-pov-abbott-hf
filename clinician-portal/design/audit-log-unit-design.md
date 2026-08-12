@@ -3,8 +3,7 @@ itemId: unit-cp-3
 itemType: Software Item Spec
 itemTitle: Audit Log Unit
 Software item type: Function
-itemFulfills:
-  - KXITM3HK06FQ9BK9909M653RJY3AF5S
+itemFulfills: KXITM3HK06FQ9BK9909M653RJY3AF5S
 ---
 
 # Audit Log Unit

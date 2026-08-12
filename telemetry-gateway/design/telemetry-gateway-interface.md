@@ -3,9 +3,7 @@ itemId: ifspec-dtg-1-ifspec-dtg-2
 itemType: Software Item Spec
 itemTitle: Device Telemetry Gateway API - Interface Specs
 Software item type: Interface
-itemFulfills:
-  - KXITM04ZCMKWW14856B8J032ME8A31F
-  - KXITM4YDNF4VQ9A9N5BKR8JKB2V8FFT
+itemFulfills: KXITM04ZCMKWW14856B8J032ME8A31F, KXITM4YDNF4VQ9A9N5BKR8JKB2V8FFT
 ---
 
 # Device Telemetry Gateway API
