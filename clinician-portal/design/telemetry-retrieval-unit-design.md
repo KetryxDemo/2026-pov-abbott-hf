@@ -1,11 +1,10 @@
 ---
-title: Telemetry Retrieval Unit
-type: SOFTWARE_ITEM
-category: Unit
-unitId: UNIT-CP-1
-relations:
-  fulfills:
-    - KXITM4BDXAA3SJZ8C0A1SDZA0R8FNN0
+itemId: unit-cp-1
+itemType: Software Item Spec
+itemTitle: Telemetry Retrieval Unit
+Software item type: Function
+itemFulfills:
+  - KXITM4BDXAA3SJZ8C0A1SDZA0R8FNN0
 ---
 
 # Telemetry Retrieval Unit

@@ -1,12 +1,11 @@
 ---
-title: Reminder Scheduling Unit
-type: SOFTWARE_ITEM
-category: Unit
-unitId: UNIT-PCA-3
-relations:
-  fulfills:
-    - KXITM51063WVB4K94293EMHES97TA08
-    - KXITM33E5B3FF8Y87T8E603K54ASSKC
+itemId: unit-pca-3
+itemType: Software Item Spec
+itemTitle: Reminder Scheduling Unit
+Software item type: Function
+itemFulfills:
+  - KXITM51063WVB4K94293EMHES97TA08
+  - KXITM33E5B3FF8Y87T8E603K54ASSKC
 ---
 
 # Reminder Scheduling Unit

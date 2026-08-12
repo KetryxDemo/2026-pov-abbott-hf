@@ -1,11 +1,10 @@
 ---
-title: Motor Drive Control Unit
-type: SOFTWARE_ITEM
-category: Unit
-unitId: UNIT-PCF-1
-relations:
-  fulfills:
-    - KXITM0AWQNJJZR48H484C8GEF1CA3K2
+itemId: unit-pcf-1
+itemType: Software Item Spec
+itemTitle: Motor Drive Control Unit
+Software item type: Function
+itemFulfills:
+  - KXITM0AWQNJJZR48H484C8GEF1CA3K2
 ---
 
 # Motor Drive Control Unit

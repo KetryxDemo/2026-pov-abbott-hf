@@ -1,12 +1,11 @@
 ---
-title: Trends Widget Unit
-type: SOFTWARE_ITEM
-category: Unit
-unitId: UNIT-PCA-2
-relations:
-  fulfills:
-    - KXITM3BEJQSSXXK9DDAB75JF7N975ME
-    - KXITM7MAS4TDBB79ZKA27G6V4R6JCM4
+itemId: unit-pca-2
+itemType: Software Item Spec
+itemTitle: Trends Widget Unit
+Software item type: Function
+itemFulfills:
+  - KXITM3BEJQSSXXK9DDAB75JF7N975ME
+  - KXITM7MAS4TDBB79ZKA27G6V4R6JCM4
 ---
 
 # Trends Widget Unit

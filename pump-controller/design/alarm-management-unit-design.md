@@ -1,11 +1,10 @@
 ---
-title: Alarm Management Unit
-type: SOFTWARE_ITEM
-category: Unit
-unitId: UNIT-PCF-3
-relations:
-  fulfills:
-    - KXITM5FK6ZF5TRA85RR172M17E7NFN1
+itemId: unit-pcf-3
+itemType: Software Item Spec
+itemTitle: Alarm Management Unit
+Software item type: Function
+itemFulfills:
+  - KXITM5FK6ZF5TRA85RR172M17E7NFN1
 ---
 
 # Alarm Management Unit

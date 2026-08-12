@@ -1,12 +1,11 @@
 ---
-title: Telemetry Publisher Unit
-type: SOFTWARE_ITEM
-category: Unit
-unitId: UNIT-PCF-4
-relations:
-  fulfills:
-    - KXITM0VAEF15X6V8JABPZACWSGPPEMF
-    - KXITM4PAPWKWPT39EY808XM4ARKFD7F
+itemId: unit-pcf-4
+itemType: Software Item Spec
+itemTitle: Telemetry Publisher Unit
+Software item type: Function
+itemFulfills:
+  - KXITM0VAEF15X6V8JABPZACWSGPPEMF
+  - KXITM4PAPWKWPT39EY808XM4ARKFD7F
 ---
 
 # Telemetry Publisher Unit

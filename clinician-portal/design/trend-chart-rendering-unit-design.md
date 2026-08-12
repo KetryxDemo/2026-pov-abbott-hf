@@ -1,12 +1,11 @@
 ---
-title: Trend Chart Rendering Unit
-type: SOFTWARE_ITEM
-category: Unit
-unitId: UNIT-CP-2
-relations:
-  fulfills:
-    - KXITM3JE6QCPV6X82GA0XJRPR9BMAYT
-    - KXITM6QYCMB27XW937A352M5E2CN4M0
+itemId: unit-cp-2
+itemType: Software Item Spec
+itemTitle: Trend Chart Rendering Unit
+Software item type: Function
+itemFulfills:
+  - KXITM3JE6QCPV6X82GA0XJRPR9BMAYT
+  - KXITM6QYCMB27XW937A352M5E2CN4M0
 ---
 
 # Trend Chart Rendering Unit
