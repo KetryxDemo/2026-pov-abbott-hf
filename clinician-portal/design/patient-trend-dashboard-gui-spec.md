@@ -36,6 +36,14 @@ flowchart TB
     HEADER --> CHART --> PROXY
 ```
 
+## Reference
+
+![Patient Trend Dashboard wireframe](patient-trend-dashboard-wireframe.png)
+
+The wireframe defines what the screen must show and how elements relate.
+It is not a pixel-accurate mock; layout, typography and color live in the
+design system.
+
 ## Behavior
 
 | Element | Required behavior | Satisfies |
