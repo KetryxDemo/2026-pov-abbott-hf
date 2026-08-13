@@ -36,20 +36,6 @@ flowchart TB
     HEADER --> CHART --> PROXY
 ```
 
-## Reference
-
-Relative path form:
-
-![Patient Trend Dashboard wireframe](patient-trend-dashboard-wireframe.png)
-
-Absolute raw form:
-
-![Patient Trend Dashboard wireframe (absolute)](https://raw.githubusercontent.com/KetryxDemo/2026-pov-abbott-hf/main/clinician-portal/design/patient-trend-dashboard-wireframe.png)
-
-The wireframe defines what the screen must show and how elements relate.
-It is not a pixel-accurate mock; layout, typography and color live in the
-design system.
-
 ## Behavior
 
 | Element | Required behavior | Satisfies |
