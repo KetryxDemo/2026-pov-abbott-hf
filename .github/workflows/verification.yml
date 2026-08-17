@@ -1,0 +1,61 @@
+name: System verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      ketryx-version:
+        description: 'Ketryx version ID to report results against'
+        required: true
+        default: 'KXVSN01KZVNWD6JEB6BJVC044GEMCG9'
+  push:
+    branches: [main]
+    paths:
+      - 'verification/**'
+
+env:
+  DEFAULT_KETRYX_VERSION: 'KXVSN01KZVNWD6JEB6BJVC044GEMCG9'
+
+jobs:
+  system-verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      - name: Run Cucumber system verification suite
+        working-directory: verification
+        run: mvn -B test
+
+      # The @tests tags live in the .feature sources, where the Ketryx repo scan
+      # turns them into Test Case -> requirement trace links. Stripping them from
+      # the runtime report lets executions attach to those Test Cases by scenario
+      # identity, without creating duplicate bare automated-test links.
+      - name: Strip trace tags from report
+        run: |
+          node -e "
+            const fs = require('fs');
+            const p = 'verification/target/cucumber-report.json';
+            const r = JSON.parse(fs.readFileSync(p, 'utf8'));
+            for (const feat of r) {
+              for (const el of feat.elements || []) {
+                el.tags = (el.tags || []).filter(t => !t.name.startsWith('@tests:'));
+              }
+            }
+            fs.writeFileSync(p, JSON.stringify(r));
+          "
+
+      - name: Report results to Ketryx
+        if: always()
+        uses: Ketryx/ketryx-github-action@v1
+        with:
+          ketryx-url: https://demo.ketryx.com
+          project: KXPRJ01KZVKKM0ZEENAW2JTBEEWJ2KX
+          version: ${{ inputs.ketryx-version || env.DEFAULT_KETRYX_VERSION }}
+          api-key: ${{ secrets.KETRYX_API_KEY }}
+          build-name: abbott-hf-system-verification
+          test-cucumber-path: verification/target/cucumber-report.json
