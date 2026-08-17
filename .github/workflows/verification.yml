@@ -1,5 +1,8 @@
 name: System verification
 
+# Manual only. Every run creates a new Ketryx build and its executions cannot be
+# deleted, so the suite is not run on push - trigger it deliberately from the
+# Actions tab when you want fresh evidence.
 on:
   workflow_dispatch:
     inputs:
@@ -7,11 +10,6 @@ on:
         description: 'Ketryx version ID to report results against'
         required: true
         default: 'KXVSN01KZVNWD6JEB6BJVC044GEMCG9'
-  push:
-    branches: [main]
-    paths:
-      - 'verification/**'
-
 env:
   DEFAULT_KETRYX_VERSION: 'KXVSN01KZVNWD6JEB6BJVC044GEMCG9'
 
